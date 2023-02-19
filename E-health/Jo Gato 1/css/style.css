@@ -1,0 +1,8 @@
+.navbar-brand{
+    font-family: 'Ubuntu', sans-serif;
+}
+.nav-item :hover{
+    background-color: gold;
+    border: solid goldenrod 1px;
+    border-radius: 10px;
+}

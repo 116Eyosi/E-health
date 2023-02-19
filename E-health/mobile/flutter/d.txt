@@ -1,0 +1,22 @@
+Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: DateTimeField(format:format,
+                      controller: datetime,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(8)),
+                        hintText: 'Input Date ',
+                      ),
+                      onShowPicker:(context,currentValue)async{
+                        final date=await showDatePicker(context:context,
+                            initialDate:currentValue ?? DateTime.now(),firstDate:DateTime(2000), lastDate:DateTime(2100));
+                        if(date!=null){
+                          final time=await showTimePicker(context: context, initialTime: TimeOfDay.fromDateTime(currentValue ?? DateTime.now()));
+
+                          return DateTimeField.combine(date, time);}
+
+                        else{
+                          return currentValue;
+                        }
+                      }),
+                ),
